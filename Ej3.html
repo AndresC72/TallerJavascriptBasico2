@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- estilos de los cuadros -->
+    <style>
+
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ddd;
+            display: 	inline-block;
+            margin-left: 56px ;
+            border : 1px solid #aaa;
+        }
+
+       
+        
+       
+
+    </style>
+
+</head>
+
+<!-- desde mi varibale bg color le asigno un color 
+por defecto que es el blanco -->
+<body bgColor=#ffffff>
+    <section id="contenedor">
+        <p> Rojo </p>
+        <div class="" style="background-color: #FF0000;" onmouseover="changecolor('FF0000')" ></div>
+        <p> Verde</p>
+        <div class=""  style="background-color: #00FF00;" onmouseover="changecolor('00FF00')"></div>
+        <p> Marron</p>
+        <div class=""  style="background-color: #800000;" onmouseover="changecolor('800000')"></div>
+        <p>Oliva</p>
+        <div class=""  style="background-color: #808000;" onmouseover="changecolor('808000')"></div>
+        <p>Morado</p>
+        <div class=""  style="background-color: #800080;" onmouseover="changecolor('800080')"></div>
+        <p>Blanco</p>
+        <div class=""  style="background-color: #FFFFFF" onmouseover="changecolor('FFFFFF')"></div>
+    </section>
+
+    <script>
+       
+        // esta funcion me permite cambiar el color dinamicamente desde mi 
+        // variable bgcolor desde el id que tiene por defecto el body  
+        
+        function changecolor(code) { 
+	    document.bgColor=code
+        }
+
+        
+
+    </script>
+</body>
+</html>

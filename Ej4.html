@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/eTaller2.css">
+</head>
+<body>
+    
+<img src="https://imgs-akamai.mnstatic.com/84/99/84997217376d2b131ac6fb96ebe98144.jpg?output-quality=75&output-format=progressive-jpeg&interpolation=lanczos-none&fit=inside|980:880" alt="" style="width: 500px;"> <br>
+    
+    
+    <button id="aumentar">Zoom +</button>
+    <button id="disminuir">Zoom -</button>
+    
+
+    <script>
+        let zoom4=1;
+        let imagen=document.getElementsByTagName('img')[0];
+        document.getElementById('aumentar').addEventListener("click",function(){
+            zoom4=zoom4+0.2;
+            imagen.style.zoom=zoom4;
+        });
+        document.getElementById('disminuir').addEventListener("click",function(){
+            zoom4=zoom4-0.2;
+            imagen.style.zoom=zoom4;
+        });
+    </script>
+
+</body>
+</html>

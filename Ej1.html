@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- le digo el alto y el ancho que va tener el video y le asigno un id -->
+    <video id="mivideo" width="640" height="320" style="margin-left: 145px;">
+    
+       <!--  le indico el tipo de formato y la hubicacion del video -->
+        <source src="video/mivideo.mp4" type="video/mp4"> 
+      
+        
+    </video>
+
+    
+    <div id="controles">
+
+<!-- le ponemos el evento onclick al boton -->
+<button onclick="IniciarPausar()">&#9658;/|| Play Pause</button>
+<button onclick="Grande()">Tamaño Grande</button>
+<button onclick="Mediano()">Tamaño Mediano (Por_Defecto)</button>
+<button onclick="Pequenio()">Tamaño Pequeño</button>
+<!-- le pasamos como parametro el valor que querramos adelantar u atrazar -->
+<button onclick="skip(-10)">&lt;&lt; Retrocede 10s</button>
+<button onclick="skip(10)">&gt;&gt; Adelanta 10s</button>
+<button onclick="stop()">&#9726;Stop</button>
+<button id="btnMute">Silenciar</button>
+<br>
+Volumen:
+<input type="range" id="Volumen" value="1" min="0" max="1" step="0.1">
+<br>
+Adelanta o retrocede:
+<input type="range"  id="Velocidad" value="0">
+    </div>
+
+
+    <script>
+    mivideo = document.getElementById('mivideo');
+
+    btnMute = document.getElementById('btnMute');  
+
+    Volumen = document.getElementById('Volumen');
+    // creamos una funcion para inciar y pausar
+    function IniciarPausar () {
+        // se declara el video pausado por defecto 
+        if (mivideo.paused) {
+            mivideo.play();
+        }else{
+            mivideo.pause();
+        }
+    }   
+  // con esta funcion le damos un ancho y un alto a una 
+ // funcion que tiene un boton
+    function Grande() {
+        mivideo.width = 800;
+        mivideo.height = 450;
+    }
+
+    function Mediano() {
+        mivideo.width = 640;
+        mivideo.height = 320;
+    }
+
+    function Pequenio() {
+        mivideo.width = 320;
+        mivideo.height = 180;
+    }
+    function stop () {
+        mivideo.pause();
+        mivideo.currentTime = 0;
+    }
+
+    function skip(value){
+        mivideo.currentTime += value;
+    }
+
+    Velocidad.addEventListener("change", function() {
+        proceso = Velocidad.value *  mivideo.duration / 100;
+        mivideo.currentTime = proceso;
+    });
+
+    Volumen.addEventListener("change", function(){
+        mivideo.volume = Volumen.value;
+    });
+
+    btnMute.addEventListener("click" , function(){
+     if(mivideo.muted){
+         mivideo.muted = false;
+         btnMute.innerHTML = "Silenciar"
+     }else{
+         mivideo.muted = true;
+         btnMute.innerHTML= "Audio"
+     }
+    });
+
+
+
+
+
+
+    </script>
+
+    
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
